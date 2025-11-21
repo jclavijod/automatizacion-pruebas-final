@@ -7,6 +7,6 @@ class AcceptanceTest {
 
     @Test
 	void acceptanceScenario_shouldBehaveAsExpected() {
-		assertTrue(false, "Forzando fallo en prueba de aceptación para simular rollback");
+		assertTrue(true, "Escenario de aceptación básico debería pasar");
 	}
 }
