@@ -6,9 +6,9 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 class AppTest {
 
     @Test
-    void testApp() {
-        // Prueba sencilla que siempre pasa
-        assertTrue(true, "La prueba básica debería pasar");
-    }
+void testApp() {
+    // Esto hará fallar el test a propósito
+    assertTrue(false, "Forzando fallo de prueba para verificar CI");
+}
 }
 // Comentario para disparar CI
