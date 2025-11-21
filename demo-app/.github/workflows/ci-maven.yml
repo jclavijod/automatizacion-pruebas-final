@@ -1,0 +1,28 @@
+name: CI Maven
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main, develop ]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1) Descargar el código del repo
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # 2) Instalar Java (JDK 17)
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+
+      # 3) Ir a la carpeta del proyecto Maven
+      - name: Build and test with Maven
+        working-directory: ./demo-app
+        run: mvn -B -e -X test
