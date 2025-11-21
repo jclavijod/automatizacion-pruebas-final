@@ -11,3 +11,4 @@ class AppTest {
         assertTrue(true, "La prueba básica debería pasar");
     }
 }
+// Comentario para disparar CI
