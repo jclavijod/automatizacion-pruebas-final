@@ -27,14 +27,42 @@
 
 	<build>
 		<plugins>
+			<!-- Plugin para ejecutar tests unitarios por defecto -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-surefire-plugin</artifactId>
 				<version>3.2.5</version>
 				<configuration>
 					<useModulePath>false</useModulePath>
+					<!-- Por defecto, excluimos los tests de aceptación -->
+					<excludes>
+						<exclude>**/*AcceptanceTest.java</exclude>
+					</excludes>
 				</configuration>
 			</plugin>
 		</plugins>
 	</build>
+	
+	<profiles>
+		<profile>
+			<id>acceptance-tests</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-surefire-plugin</artifactId>
+						<version>3.2.5</version>
+						<configuration>
+							<useModulePath>false</useModulePath>
+							<!-- En este perfil, ejecutamos SOLO tests de aceptación -->
+							<includes>
+								<include>**/*AcceptanceTest.java</include>
+							</includes>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
+	
 </project>
